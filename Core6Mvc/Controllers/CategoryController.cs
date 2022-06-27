@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Northwind.BL.Abstract;
 
 namespace Core6Mvc.Controllers
 {
+
     public class CategoryController : Controller
     {
-        public readonly ICategoryManager categoryManager;
+        private readonly ICategoryManager categoryManager;
+
         public CategoryController(ICategoryManager categoryManager)
         {
             this.categoryManager = categoryManager;
@@ -16,5 +19,11 @@ namespace Core6Mvc.Controllers
             var result = categoryManager.GetAll();
             return View(result);
         }
+        [Authorize]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
     }
 }
