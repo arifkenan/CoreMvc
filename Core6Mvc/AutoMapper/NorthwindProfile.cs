@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core6Mvc.Models.DTO.Employees;
+using Core6Mvc.Models.DTO.Products;
 using Nortwhind.Entities;
 
 namespace Core6Mvc.AutoMapper
@@ -14,6 +15,10 @@ namespace Core6Mvc.AutoMapper
 
             CreateMap<Employee, EmployeeUpdateDto>();
             CreateMap<EmployeeUpdateDto, Employee>();
+
+            CreateMap<Product, ProductListDTO>();
+            
+
         }
 
 
